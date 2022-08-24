@@ -8,13 +8,8 @@ dependencies {
 
 repositories {
     maven {
-        url 'https://api.mapbox.com/downloads/v2/releases/maven'
         authentication {
             basic(BasicAuthentication)
-        }
-        credentials {
-            username = 'mapbox'
-            password = project.properties['MAPBOX_DOWNLOADS_TOKEN'] ?: "sk.eyJ1Ijoic2FuZHJhLWFtcG9ydCIsImEiOiJjbDY1MDcxZmQwc3ByM2RwNDdzNjVqYWV6In0.COrDPbobMxaYQ_Z3FmmVZg"
         }
     }
 }
