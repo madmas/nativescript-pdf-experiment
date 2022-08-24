@@ -1,0 +1,46 @@
+// You can add your native dependencies here
+dependencies {
+            api 'com.google.android.gms:play-services-base:18.0.0'
+            implementation 'com.google.android.gms:play-services-basement:18.0.0'
+            implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+}
+
+repositories {
+    maven {
+        url 'https://api.mapbox.com/downloads/v2/releases/maven'
+        authentication {
+            basic(BasicAuthentication)
+        }
+        credentials {
+            username = 'mapbox'
+            password = project.properties['MAPBOX_DOWNLOADS_TOKEN'] ?: "sk.eyJ1Ijoic2FuZHJhLWFtcG9ydCIsImEiOiJjbDY1MDcxZmQwc3ByM2RwNDdzNjVqYWV6In0.COrDPbobMxaYQ_Z3FmmVZg"
+        }
+    }
+}
+
+android {
+    compileSdkVersion 32
+  // buildToolsVersion "32.0.0"
+  // ndkVersion ""
+
+    defaultConfig {
+        minSdkVersion 26
+        targetSdkVersion 32
+
+        // Version Information
+        versionCode 1
+        versionName "1.0.0"
+
+        generatedDensities = []
+    }
+
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
